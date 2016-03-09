@@ -11,6 +11,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     String currentName = ""; //nothing entered
+
+    //This is the backup where we save the name in case the user hits the undo button
     String backup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,15 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("UNDO", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                //This code will ONLY be executed in case that
+                                //the user has hit the UNDO button
                                 TextView textView = (TextView) findViewById(R.id.lastEntered);
                                 currentName = new String(backup); //get backup
                                 textView.setText(currentName);
                                 Snackbar snackbar = Snackbar.make(parent, "Old name restored!", Snackbar.LENGTH_SHORT);
+
+                                //Show the user we have restored the name - but here
+                                //on this snackbar there is NO UNDO - so not SetAction method is called
                                 snackbar.show();
                             }
                         });
