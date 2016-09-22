@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 EditText editText = (EditText) findViewById(R.id.editText);
                 backup = new String(currentName); //creating a backup
 
-
+                //the following two lines hide the keyboard after clicking the button
+                //which is what you want!
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(parent.getWindowToken(), 0);
 
