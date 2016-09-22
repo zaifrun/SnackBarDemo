@@ -1,9 +1,11 @@
 package org.pondar.snackbardemo;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
                 TextView textView = (TextView) findViewById(R.id.lastEntered);
                 EditText editText = (EditText) findViewById(R.id.editText);
                 backup = new String(currentName); //creating a backup
+
+
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(parent.getWindowToken(), 0);
 
                 currentName =  editText.getText().toString();
                 textView.setText(currentName);
