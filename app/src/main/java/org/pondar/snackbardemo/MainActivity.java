@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final View parent = findViewById(R.id.layout);
         Button button = (Button) findViewById(R.id.saveButton);
+        //setting up the click listener.
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(parent.getWindowToken(), 0);
 
+                //save the text entered in the current name field.
                 currentName =  editText.getText().toString();
                 textView.setText(currentName);
                 //Now setup our snackbar and show it
@@ -51,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
                                 Snackbar snackbar = Snackbar.make(parent, "Old name restored!", Snackbar.LENGTH_SHORT);
 
                                 //Show the user we have restored the name - but here
-                                //on this snackbar there is NO UNDO - so not SetAction method is called
+                                //on this snackbar there is NO UNDO - so no SetAction method is called
+                                //if you wanted, you could include a REDO on the second action button
+                                //for instance.
                                 snackbar.show();
                             }
                         });
