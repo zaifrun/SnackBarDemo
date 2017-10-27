@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SnackBarDemo</string>
+    <string name="yourname">Enter your name</string>
 </resources>
