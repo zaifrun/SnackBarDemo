@@ -21,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final View parent = findViewById(R.id.layout);
-        Button button = (Button) findViewById(R.id.saveButton);
+        Button button = findViewById(R.id.saveButton);
         //setting up the click listener.
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView textView = (TextView) findViewById(R.id.lastEntered);
-                EditText editText = (EditText) findViewById(R.id.editText);
-                backup = new String(currentName); //creating a backup
+                TextView textView = findViewById(R.id.lastEntered);
+                EditText editText = findViewById(R.id.editText);
+                backup = currentName; //creating a backup
 
                 //the following two lines hide the keyboard after clicking the button
                 //which is what you want!
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(View view) {
                                 //This code will ONLY be executed in case that
                                 //the user has hit the UNDO button
-                                TextView textView = (TextView) findViewById(R.id.lastEntered);
-                                currentName = new String(backup); //get backup
+                                TextView textView = findViewById(R.id.lastEntered);
+                                currentName = backup; //get backup
                                 textView.setText(currentName);
                                 Snackbar snackbar = Snackbar.make(parent, "Old name restored!", Snackbar.LENGTH_SHORT);
 
